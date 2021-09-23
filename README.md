@@ -1,7 +1,8 @@
-Requirements:
-1. iTerm 2+
-2. Oh-My-Zsh (link)
-3. POWERLINE9K (add link)
-4. zsh-autosuggestions
+Run `setup.sh` to install `brew` and add the appropriate `.file` to your home directory.
 
-TODO: write script to auto install all the things
+Note that this will overwrite the following files:
+  `.zshrc`
+  `.alias`
+  `.funcs`
+  
+so if you use any of those three files, make a backup _before_ running `setup.sh`
