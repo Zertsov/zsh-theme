@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
-# Source our dotfiles
+# Source the dotfiles
 for file in ~/.{alias,funcs}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
@@ -20,7 +20,7 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 fi
 
 # add the 'git' part of the prompt
-git_prompt() {
+function git_prompt() {
     # make sure it's a git repo to start with
     git rev-parse --is-inside-work-tree &>/dev/null || return
 
@@ -64,6 +64,7 @@ if tput setaf 1 &> /dev/null; then
 	tput sgr0 # reset colors
 	bold=$(tput bold)
 	reset=$(tput sgr0)
+	
 	# Solarized colors, taken from http://git.io/solarized-colors.
 	black=$(tput setaf 0)
 	blue=$(tput setaf 33)
@@ -92,14 +93,14 @@ else
 	yellow="\e[1;33m"
 fi
 
-# Highlight the user name when logged in as root.
+# highlight the user name when logged in as root
 if [[ "${USER}" == "root" ]]; then
 	userStyle="${red}"
 else
 	userStyle="${orange}"
 fi
 
-# Highlight the hostname when connected via SSH.
+# highlight the hostname when connected via SSH
 if [[ "${SSH_TTY}" ]]; then
 	hostStyle="${bold}${red}"
 else
