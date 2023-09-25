@@ -1,12 +1,12 @@
 #!/bin/bash
 
+check_command_installed () { command -v "$1" &>/dev/null; }
+
 # Ensure the system has either curl or wget
 if ! check_command_installed curl && ! check_command_installed wget; then
 		echo "Error: This script requires either 'curl' or 'wget' to be installed."
 		exit 1
 fi
-
-check_command_installed () { command -v "$1" &>/dev/null; }
 
 log_install () {
 	echo "[install]: $1"
@@ -80,3 +80,4 @@ if ! [ -x "$(command -v git)" ]; then
 	exit 1
 fi
 
+echo "Success!"
