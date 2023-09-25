@@ -5,9 +5,10 @@ if [ -x "$(command -v curl)" ]; then
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
 	# Install brew if we're OSX (which we probably are)
-	if [[ $OSTYPE == 'darwin'* ]]; then
-		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	if [[ $OSTYPE == 'darwin'* || $OSTYPE == 'linux-gnu'* ]]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
+
 
 # Assume that if we have wget then we have Brew, since I can't think of a reasonable time you don't
 # have curl and you do have wget
