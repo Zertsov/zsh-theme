@@ -18,6 +18,9 @@ else
 		DLCMD="wget -qO-"
 fi
 
+##############
+# Installers #
+##############
 install_nvm () {
 	log_install "Installing NVM..."
 	$DLCMD https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
@@ -75,9 +78,7 @@ cp .zshrc ~/.zshrc
 cp .alias ~/.alias
 cp .funcs ~/.funcs
 
-if ! [ -x "$(command -v git)" ]; then
-	echo "Can't set up nvim - can't find git executable"
-	exit 1
-fi
+# Add tmux config
+cp -r tmux $HOME/.config/
 
 echo "Success!"
